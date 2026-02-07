@@ -247,24 +247,26 @@
         const eyeBtn = document.getElementById('eyeBtn');
         const modal = document.getElementById('videoModal');
         const closeModal = document.getElementById('closeModal');
-        const video = document.getElementById('myVideo'); // Referencia al video local
+        const video = document.getElementById('myVideo');
 
-        // Función para abrir el modal y reproducir video
+        // Función para abrir el modal, pausar música y reproducir video
         eyeBtn.addEventListener('click', () => {
             modal.style.display = "block";
-            video.play(); // Inicia el video inmediatamente
+            music.pause(); // <--- AQUÍ SE PAUSA LA MÚSICA DE FONDO
+            video.play();
         });
 
-        // Función para cerrar el modal y pausar video
+        // Función para cerrar el modal y detener video
         const stopEverything = () => {
             modal.style.display = "none";
-            video.pause(); // Pausa el video
-            video.currentTime = 0; // Reinicia el video al principio
+            video.pause();
+            video.currentTime = 0;
+            // Si quieres que la música vuelva al cerrar el video, quita el "//" de abajo:
+            // music.play();
         };
 
         closeModal.addEventListener('click', stopEverything);
 
-        // Cerrar al tocar fuera del modal
         window.addEventListener('click', (event) => {
             if (event.target == modal) {
                 stopEverything();
