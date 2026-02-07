@@ -249,20 +249,23 @@
         const closeModal = document.getElementById('closeModal');
         const video = document.getElementById('myVideo');
 
-        // Función para abrir el modal, pausar música y reproducir video
+        // Al abrir el video: pausa música de fondo
         eyeBtn.addEventListener('click', () => {
             modal.style.display = "block";
-            music.pause(); // <--- AQUÍ SE PAUSA LA MÚSICA DE FONDO
+            music.pause(); 
             video.play();
         });
 
-        // Función para cerrar el modal y detener video
+        // Al cerrar el video: detiene video y retoma música
         const stopEverything = () => {
             modal.style.display = "none";
             video.pause();
             video.currentTime = 0;
-            // Si quieres que la música vuelva al cerrar el video, quita el "//" de abajo:
-            // music.play();
+            
+            // Retoma la música solo si el botón de inicio ya se había pulsado
+            if (btn.style.display === "none") {
+                music.play().catch(err => console.log("Audio resume blocked"));
+            }
         };
 
         closeModal.addEventListener('click', stopEverything);
