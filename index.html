@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Nanos Birthday</title>
+    <style>
+        /* FONDO PSICODÉLICO MEJORADO */
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(45deg, #ff00ff, #00ffff, #ff0000, #ffff00);
+            background-size: 400% 400%;
+            animation: backgroundShift 4s ease infinite;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            overflow-x: hidden;
+            text-align: center;
+            color: white;
+            width: 100%;
+        }
+
+        @keyframes backgroundShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .title-container {
+            padding: 20px;
+            filter: drop-shadow(3px 3px 5px black);
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            text-transform: uppercase;
+            animation: wobbleText 0.6s infinite alternate, rainbowText 1s infinite;
+            margin: 10px 0;
+            line-height: 1.1;
+        }
+
+        @keyframes wobbleText {
+            from { transform: rotate(-3deg) scale(0.95); }
+            to { transform: rotate(3deg) scale(1.05); }
+        }
+
+        @keyframes rainbowText {
+            0% { color: #ff0000; }
+            33% { color: #00ff00; }
+            66% { color: #0000ff; }
+            100% { color: #ff0000; }
+        }
+
+        /* GALERÍA RESPONSIVA */
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .photo-frame {
+            width: 150px; 
+            height: 150px;
+            border: 10px solid gold; 
+            box-shadow: 0 0 20px rgba(255,255,255,0.6);
+            overflow: hidden;
+            background: white;
+            animation: palpitate 2s infinite alternate ease-in-out;
+            transition: transform 0.5s ease;
+        }
+
+        @keyframes palpitate {
+            from { transform: scale(1); border-color: gold; }
+            to { transform: scale(1.15); border-color: #ff00ff; }
+        }
+
+        .spinning-subtle {
+            animation: palpitate 2s infinite alternate ease-in-out, spinClockwise 5s infinite linear !important;
+            box-shadow: 0 0 40px #00ffff !important;
+        }
+
+        @keyframes spinClockwise {
+            from { transform: rotate(0deg) scale(1.1); }
+            to { transform: rotate(360deg) scale(1.1); }
+        }
+
+        .photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        #startBtn {
+            font-size: 1.5rem;
+            padding: 20px;
+            background: #00ff00;
+            color: #000;
+            border: 5px solid white;
+            cursor: pointer;
+            font-weight: bold;
+            border-radius: 20px;
+            box-shadow: 0 0 30px #00ff00;
+            margin: 20px auto;
+            display: block;
+            width: 80%;
+            animation: pulseBtn 1s infinite;
+        }
+
+        @keyframes pulseBtn {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); box-shadow: 0 0 50px white; }
+            100% { transform: scale(1); }
+        }
+
+        /* BOTÓN DEL OJO */
+        #eyeBtn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 70px;
+            height: 70px;
+            font-size: 35px;
+            background: white;
+            border: 4px solid #ff00ff;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 1001;
+            box-shadow: 0 0 20px #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* MODAL */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+        }
+
+        .modal-content {
+            position: relative;
+            margin: auto;
+            top: 15%;
+            width: 90%;
+            max-width: 600px;
+            border: 5px solid #ff00ff;
+            background: black;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: -50px;
+            right: 0;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 */
+            height: 0;
+            background: #000;
+        }
+
+        .video-container video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .floating {
+            position: fixed;
+            pointer-events: none;
+            z-index: 999;
+            font-size: 2.5rem;
+        }
+
+        marquee {
+            font-size: 1.8rem;
+            background: #ffff00;
+            color: #ff00ff;
+            font-weight: 900;
+            padding: 10px 0;
+            border-top: 4px solid black;
+            border-bottom: 4px solid black;
+        }
+
+        @media (min-width: 600px) {
+            h1 { font-size: 4.5rem; }
+            .photo-frame { width: 250px; height: 250px; }
+            #startBtn { width: 350px; font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <marquee scrollamount="15">🚨 ALERTA DE CUMPLEAÑOS 🚨 NANOS BIRTHDAYYYYYYYYYY 🚨 VAMOS ABRIENDO EL PAPOI 🚨 TE AMO MI AMOR 🚨</marquee>
+
+    <div class="title-container">
+        <h1>🎉 NANOS BIRTHDAY 🎉</h1>
+        <p style="font-size: 1.4rem; font-weight: bold; color: yellow; text-shadow: 2px 2px #000;">QUE ME BESE LA CUMPLEAÑERA</p>
+    </div>
+
+    <button id="startBtn">💿 PRESIONA EL BOTON 💿</button>
+
+    <button id="eyeBtn">👀</button>
+
+    <div id="videoModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeModal">&times;</span>
+            <div class="video-container">
+                <video id="myVideo" controls>
+                    <source src="video.mp4" type="video/mp4">
+                    Tu navegador no soporta videos.
+                </video>
+            </div>
+        </div>
+    </div>
+
+    <div class="gallery">
+        <div class="photo-frame"><img src="foto1.jpg" alt="1"></div>
+        <div class="photo-frame"><img src="foto2.jpg" alt="2"></div>
+        <div class="photo-frame"><img src="foto3.jpg" alt="3"></div>
+        <div class="photo-frame"><img src="foto4.jpg" alt="4"></div>
+        <div class="photo-frame"><img src="foto5.jpg" alt="5"></div>
+        <div class="photo-frame"><img src="foto6.jpg" alt="6"></div>
+        <div class="photo-frame"><img src="foto7.jpg" alt="7"></div>
+    </div>
+
+    <audio id="bgMusic" src="musica.mp3" loop></audio>
+
+    <script>
+        const btn = document.getElementById('startBtn');
+        const music = document.getElementById('bgMusic');
+        const frames = document.querySelectorAll('.photo-frame');
+        const eyeBtn = document.getElementById('eyeBtn');
+        const modal = document.getElementById('videoModal');
+        const closeModal = document.getElementById('closeModal');
+        const video = document.getElementById('myVideo'); // Referencia al video local
+
+        // Función para abrir el modal y reproducir video
+        eyeBtn.addEventListener('click', () => {
+            modal.style.display = "block";
+            video.play(); // Inicia el video inmediatamente
+        });
+
+        // Función para cerrar el modal y pausar video
+        const stopEverything = () => {
+            modal.style.display = "none";
+            video.pause(); // Pausa el video
+            video.currentTime = 0; // Reinicia el video al principio
+        };
+
+        closeModal.addEventListener('click', stopEverything);
+
+        // Cerrar al tocar fuera del modal
+        window.addEventListener('click', (event) => {
+            if (event.target == modal) {
+                stopEverything();
+            }
+        });
+
+        btn.addEventListener('click', () => {
+            music.play().catch(err => console.log("Audio play blocked"));
+            btn.style.display = "none"; 
+            
+            frames.forEach((frame, index) => {
+                setTimeout(() => {
+                    frame.classList.add('spinning-subtle');
+                }, index * 100);
+            });
+
+            setInterval(createEmoji, 150);
+            document.querySelector('h1').style.animation = "wobbleText 0.2s infinite alternate, rainbowText 0.4s infinite";
+        });
+
+        function createEmoji() {
+            const emojis = ['🎂', '💖', '🎉', '🎈', '🍰', '💃', '🎁', '🔥', '👑', '✨'];
+            const e = document.createElement('div');
+            e.className = 'floating';
+            e.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
+            e.style.left = Math.random() * 90 + 'vw';
+            e.style.top = '-50px';
+            
+            const duration = Math.random() * 3 + 3;
+            e.style.transition = `top ${duration}s linear, transform ${duration}s linear`;
+            
+            document.body.appendChild(e);
+
+            setTimeout(() => {
+                e.style.top = '110vh';
+                e.style.transform = `rotate(${Math.random() * 360}deg) scale(${Math.random() * 1.5})`;
+            }, 50);
+
+            setTimeout(() => { e.remove(); }, duration * 1000);
+        }
+
+        document.addEventListener('touchstart', (e) => {
+            if (e.touches.length > 1) e.preventDefault();
+        }, { passive: false });
+    </script>
+</body>
+</html>
